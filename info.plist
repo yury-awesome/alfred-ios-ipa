@@ -342,7 +342,7 @@ i.e. /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
 		<string>PATH</string>
 	</array>
 	<key>version</key>
-	<string>1.0.3</string>
+	<string>1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/BroderickLee/alfred-ios-ipa</string>
 </dict>
