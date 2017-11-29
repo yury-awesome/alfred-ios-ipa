@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.lee.alfred.ipa</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>1095B35C-8EF7-4517-B209-F5EA9C697338</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>39531262-D994-40DA-8F0F-888C3471E21E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>DEF58F24-B409-4D7C-AE65-983FAC882D2E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F56B4915-4CC5-46C6-AD5C-7C55529585E2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F2359CB6-39E7-4036-82C4-8DA3E5A4B0B2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1095B35C-8EF7-4517-B209-F5EA9C697338</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F56B4915-4CC5-46C6-AD5C-7C55529585E2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>39531262-D994-40DA-8F0F-888C3471E21E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Lee</string>
+	<key>description</key>
+	<string>Handy ipa commands</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>iOS IPA</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemAlternateNames</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>keyword</key>
+				<string>ipai</string>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>scopes</key>
+				<array/>
+				<key>subtext</key>
+				<string>Install an ipa</string>
+				<key>title</key>
+				<string>Install</string>
+				<key>types</key>
+				<array/>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>DEF58F24-B409-4D7C-AE65-983FAC882D2E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>import subprocess
+import sys
+
+ipa = sys.argv[1]
+
+response = subprocess.check_output(
+    'ipa-deploy %s' % ipa,
+    stderr=subprocess.STDOUT,
+    shell=True)
+
+if 'Installed' in response:
+    sys.stdout.write('Successfully installed %s' % ipa)
+else:
+	sys.stdout.write('Failed installing %s' % ipa)</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F56B4915-4CC5-46C6-AD5C-7C55529585E2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>ADB</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>39531262-D994-40DA-8F0F-888C3471E21E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>import subprocess
+import sys
+
+bundle_id = sys.argv[1]
+
+response = subprocess.check_output(
+           'ios-deploy -9 -1 %s' % bundle_id,
+           stderr=subprocess.STDOUT,
+           shell=True)
+
+if 'OK' in response:
+    sys.stdout.write('Successfully uninstalled %s' % bundle_id)
+else:
+	sys.stdout.write('Failed uninstalling %s' % bundle_id)</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1095B35C-8EF7-4517-B209-F5EA9C697338</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>ipau</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>python list_apps.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Select an bundle ID to uninstall</string>
+				<key>title</key>
+				<string>Uninstall app</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F2359CB6-39E7-4036-82C4-8DA3E5A4B0B2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>To configure this workflow be sure to set PATH envircoment Variables. (Configure workflow and variables)
+
+i.e. /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	<key>uidata</key>
+	<dict>
+		<key>1095B35C-8EF7-4517-B209-F5EA9C697338</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>260</integer>
+		</dict>
+		<key>39531262-D994-40DA-8F0F-888C3471E21E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>530</integer>
+			<key>ypos</key>
+			<integer>160</integer>
+		</dict>
+		<key>DEF58F24-B409-4D7C-AE65-983FAC882D2E</key>
+		<dict>
+			<key>note</key>
+			<string>IPA Install</string>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>20</integer>
+		</dict>
+		<key>F2359CB6-39E7-4036-82C4-8DA3E5A4B0B2</key>
+		<dict>
+			<key>note</key>
+			<string>IPA Uninstall</string>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>F56B4915-4CC5-46C6-AD5C-7C55529585E2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<integer>70</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>PATH</string>
+	</array>
+	<key>version</key>
+	<string>1.0.3</string>
+	<key>webaddress</key>
+	<string>https://github.com/BroderickLee/alfred-ios-ipa</string>
+</dict>
+</plist>
