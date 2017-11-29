@@ -11,19 +11,19 @@ v1.0 release now [Download](https://github.com/BroderickLee/alfred-ios-ipa/relea
 - First, install Homebrew.
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-Then run brew update to make sure Homebrew is up to date.
+- Then run brew update to make sure Homebrew is up to date.
 `brew update`
 
-Next, add Homebrew's location to your $PATH in your .bash_profile or .zshrc file.
+- Next, add Homebrew's location to your $PATH in your .bash_profile or .zshrc file.
 `export PATH="/usr/local/bin:$PATH"`
 
-Next, install Node (npm will be installed with Node):
+- Next, install Node (npm will be installed with Node):
 `brew install node`
 
-To test out your Node and npm install, try installing Grunt (you might be asked to run with sudo):
+- To test out your Node and npm install, try installing Grunt (you might be asked to run with sudo):
 `npm install -g grunt-cli`
 
-If that worked then congratulations — you've installed Node.js, npm, and Grunt. 🚀
+> If that worked then congratulations — you've installed Node.js, npm, and Grunt. 🚀
 
 - Now, your can install ios-deploy and ipa-deploy like this.
 [ipa-deploy](https://www.npmjs.com/package/ipa-deploy)
@@ -45,13 +45,13 @@ i.e. /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 The following commands are supported. Arguments denoted with `[]` are mandatory and with `()` are optional
 
-- ipai [ipa_file_path] 		Install specific IPA file into your iOS devices. 
-- ipau [Bundle_ID]			Uninstall the app which pass in bundle id.
+- ipai [ipa_file_path] ->   Install specific IPA file into your iOS devices. 
+- ipau [Bundle_ID]     ->   Uninstall the app which pass in bundle id.
 
 ## Previews
 
 ### Install IPA
-![Install ipa](hhttps://raw.githubusercontent.com/BroderickLee/alfred-ios-ipa/master/usage_ipa_install.png "Install ipa")
+![Install ipa](https://raw.githubusercontent.com/BroderickLee/alfred-ios-ipa/master/usage_ipa_install.png "Install ipa")
 
 ### Uninstall IPA
 ![Uninstall ipa](https://raw.githubusercontent.com/BroderickLee/alfred-ios-ipa/master/usage_ipa_uninstall.png "Uninstall ipa")
