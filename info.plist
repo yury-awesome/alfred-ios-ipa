@@ -193,7 +193,7 @@ else:
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>ADB</string>
+				<string>IPA</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
